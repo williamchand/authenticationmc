@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[1.21.3,)"
+license="MIT"
+
+[[mods]]
+modId="authenticationmc"
+version="1.0"
+displayName="Authentication MC"
+description="Server authentification mc."
+logoFile="logo.png"
+authors="Ameno Signy"
+displayURL="https://github.com/williamchand/authentication-mc"
+issueTrackerURL="https://github.com/williamchand/authentication-mc/issues"

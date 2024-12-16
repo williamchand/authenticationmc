@@ -1,0 +1,40 @@
+name: Build Mod
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to trigger the build on
+  pull_request:
+    branches:
+      - main  # trigger on PR to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Or any other OS you want to use for the build
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up JDK 17
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          java-version: '22'
+          distribution: 'temurin'
+
+      # Make gradlew executable
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      # Build the project
+      - name: Build the mod
+        run: ./gradlew build
+
+      # Upload the JAR file as an artifact
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifacts  # This will be the name of the artifact
+          path: build/libs/*.jar  # Path to the built JAR file
