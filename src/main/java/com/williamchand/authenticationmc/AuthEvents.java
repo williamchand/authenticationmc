@@ -29,8 +29,8 @@ public class AuthEvents {
             // If the player is not logged in, show a message and freeze their position
             player.displayClientMessage(Component.literal("Please log in using /login <password>"), false);
             playerPositions.put(playerId, player.position());
-            playerXRot.put(playerId, player.xRotO());
-            playerYRot.put(playerId, player.yRotO());
+            playerXRot.put(playerId, player.getXRot());
+            playerYRot.put(playerId, player.getYRot());
         }
     }
 
