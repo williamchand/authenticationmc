@@ -40,8 +40,10 @@ public class AuthEvents {
                 // Freeze the player
                 Vec3 originalPos = playerPositions.get(playerId);
                 if (originalPos != null) {
-                    player.teleportTo(player.serverLevel(), originalPos.x, originalPos.y, originalPos.z, 0.0F,  0.0F);
+                    player.teleportTo(originalPos.x, originalPos.y, originalPos.z);
                     player.setDeltaMovement(Vec3.ZERO); // Prevent movement
+                    player.setXRot(0.0F);
+                    player.setYRot(0.0F);
                 }
             } else {
                 // Remove from frozen list if logged in
