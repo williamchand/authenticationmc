@@ -16,8 +16,8 @@ import net.minecraftforge.fml.common.Mod;
 public class AuthEvents {
 
     private static final Map<UUID, Vec3> playerPositions = new HashMap<>();
-    private static final Map<UUID, Float> playerXRot = new HashMap<>();
-    private static final Map<UUID, Float> playerYRot = new HashMap<>();
+    // private static final Map<UUID, Float> playerXRot = new HashMap<>();
+    // private static final Map<UUID, Float> playerYRot = new HashMap<>();
 
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
@@ -29,8 +29,8 @@ public class AuthEvents {
             // If the player is not logged in, show a message and freeze their position
             player.displayClientMessage(Component.literal("Please log in using /login <password>"), false);
             playerPositions.put(playerId, player.position());
-            playerXRot.put(playerId, player.getXRot());
-            playerYRot.put(playerId, player.getYRot());
+            // playerXRot.put(playerId, player.getXRot());
+            // playerYRot.put(playerId, player.getYRot());
         }
     }
 
@@ -43,13 +43,13 @@ public class AuthEvents {
             if (!PlayerAuthHandler.isLoggedIn(playerName)) {
                 // Freeze the player
                 Vec3 originalPos = playerPositions.get(playerId);
-                float originalXRot = playerXRot.get(playerId);
-                float originalYRot = playerYRot.get(playerId);
+                // float originalXRot = playerXRot.get(playerId);
+                // float originalYRot = playerYRot.get(playerId);
                 if (originalPos != null) {
                     player.teleportTo(originalPos.x, originalPos.y, originalPos.z);
                     player.setDeltaMovement(Vec3.ZERO); // Prevent movement
-                    player.setXRot(originalXRot);
-                    player.setYRot(originalYRot);
+                    player.setXRot(0);
+                    player.setYRot(0);
                 }
             } else {
                 // Remove from frozen list if logged in
