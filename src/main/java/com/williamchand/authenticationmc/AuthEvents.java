@@ -16,8 +16,8 @@ import net.minecraftforge.fml.common.Mod;
 public class AuthEvents {
 
     private static final Map<UUID, Vec3> playerPositions = new HashMap<>();
-    private static final Map<UUID, float> playerXRot = new HashMap<>();
-    private static final Map<UUID, float> playerYRot = new HashMap<>();
+    private static final Map<UUID, Float> playerXRot = new HashMap<>();
+    private static final Map<UUID, Float> playerYRot = new HashMap<>();
 
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
